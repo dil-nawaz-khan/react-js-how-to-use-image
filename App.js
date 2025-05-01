@@ -1,9 +1,11 @@
 import AppleCounter from "./components/AppleCounter";
+import Counter from "./components/Counter";
 
-export default function App() {
+export default function App({ root }) {
   return (
     <div>
-      <AppleCounter />
+      {/* <Counter /> */}
+      <AppleCounter root={root} />
     </div>
   );
 }
