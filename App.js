@@ -1,11 +1,13 @@
 import AppleCounter from "./components/AppleCounter";
 import Counter from "./components/Counter";
 
-export default function App({ root }) {
+const App = () => {
   return (
     <div>
-      {/* <Counter /> */}
-      <AppleCounter root={root} />
+      <Counter counterName="Timer"></Counter>
+      <AppleCounter />
     </div>
   );
-}
+};
+
+export default App;

@@ -71,7 +71,7 @@ import leftArrow from "url:../assets/images/left-arrow.png";
 import rightArrow from "url:../assets/images/right-arrow.png";
 
 import Button from "./Button";
-import Basket from "./Basket";
+import AppleBasket from "./Basket";
 
 import "./AppleCounter.css";
 import { useState } from "react";
@@ -83,14 +83,13 @@ export default function AppleCounter() {
   const [leftAppleCount, setLeftAppleCount] = useState(
     totalAppleCount - rightAppleCount
   );
-  const handleLeftArrow = () => {
+  const leftClickHandler = () => {
     if (rightAppleCount > 0) {
       setRightAppleCount(rightAppleCount - 1);
       setLeftAppleCount(leftAppleCount + 1);
     }
   };
-
-  const handleRightArrow = () => {
+  const rightClickHandler = () => {
     if (leftAppleCount > 0) {
       setRightAppleCount(rightAppleCount + 1);
       setLeftAppleCount(leftAppleCount - 1);
@@ -99,18 +98,16 @@ export default function AppleCounter() {
 
   return (
     <section>
-      <Basket appleCount={leftAppleCount} basketName="Basket 1" />
+      <AppleBasket appleCount={leftAppleCount} basketName="Basket 1" />
+      <Button clickHandler={leftClickHandler} imageUrl={leftArrow}>
+        {/* Left Arrow */}
+      </Button>
       <Button
-        imageUrl={leftArrow}
-        buttonTitle="Left Arrow"
-        clickHandler={handleLeftArrow}
-      />
-      <Button
+        clickHandler={rightClickHandler}
         imageUrl={rightArrow}
-        buttonTitle="Right Arrow"
-        clickHandler={handleRightArrow}
+        // children="Right Arrow"
       />
-      <Basket appleCount={rightAppleCount} basketName="Basket 2" />
+      <AppleBasket appleCount={rightAppleCount} basketName="Basket 2" />
     </section>
   );
 }

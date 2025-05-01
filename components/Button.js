@@ -1,7 +1,10 @@
-export default function Button({ imageUrl, buttonTitle, clickHandler }) {
+const Button = ({ imageUrl, clickHandler, children }) => {
   return (
-    <button title={buttonTitle} onClick={clickHandler}>
-      <img src={imageUrl} alt={buttonTitle} />
+    <button onClick={clickHandler} title={children}>
+      {children}
+      <img src={imageUrl} alt={children} />
     </button>
   );
-}
+};
+
+export default Button;
